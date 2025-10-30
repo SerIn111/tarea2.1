@@ -6,12 +6,14 @@ class MyTextfield extends StatefulWidget{
     required this.type, 
     required this.obscuretext, 
     this.textoejemplo = '', 
-    this.icono});
+    this.icono,
+    this.controller});
 
   final TextInputType type;
   bool obscuretext;
   final String textoejemplo;
   final Widget? icono;
+  final TextEditingController? controller;
           
 
   @override
@@ -48,6 +50,7 @@ class _MyTextfieldState extends State<MyTextfield> {
           )
           : widget.icono,
       ),
+      controller: widget.controller,
     );
   }
 }

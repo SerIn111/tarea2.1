@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:tarea2_1/src/views/login.dart';
+import 'package:tarea2_1/src/views/register.dart';
 
 void main() => runApp(const MyApp());
 
@@ -10,18 +11,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      title: 'Tarea 2.1',
       routerConfig: GoRouter(
         initialLocation: '/login',
         routes: [
           GoRoute(
             path: '/login', 
             name: 'login', 
-            builder: (state, context) => Login()
+            builder: (context, state) => Login(),
+            routes: [
+              GoRoute(
+                path: '/register', 
+                name: 'register', 
+                builder: (context, state) => const Register()
+              ),
+            ]
           ),
         ]
       ),
+      debugShowCheckedModeBanner: false,
+      title: 'Tarea 2.1',
     );
   }
 }
