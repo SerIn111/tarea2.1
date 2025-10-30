@@ -1,23 +1,53 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
-class MyTextfield extends StatelessWidget{
-  MyTextfield({super.key, required this.type, this.obscuretext = false, this.textoejemplo = '', this.icono});
+class MyTextfield extends StatefulWidget{
+  MyTextfield({
+    super.key, 
+    required this.type, 
+    required this.obscuretext, 
+    this.textoejemplo = '', 
+    this.icono});
 
   final TextInputType type;
-  final bool obscuretext;
+  bool obscuretext;
   final String textoejemplo;
   final Widget? icono;
+          
+
+  @override
+  State<MyTextfield> createState() => _MyTextfieldState();
+}
+
+class _MyTextfieldState extends State<MyTextfield> {
+  late bool _isObscured;
+  @override
+  void initState() {
+    super.initState();
+    _isObscured = widget.obscuretext; 
+  }
+  
   @override
   Widget build(BuildContext context){
     return TextField(
-      keyboardType: type,
-      obscureText: obscuretext,
+      keyboardType: widget.type,
+      obscureText: _isObscured,
       decoration: InputDecoration(
-        label: Text(textoejemplo),
-        suffixIcon: icono
+        label: Text(widget.textoejemplo),
+        suffixIcon: widget.obscuretext
+          ? IconButton(
+             icon : Icon(
+              _isObscured 
+              ? Icons.remove_red_eye_rounded 
+              : Icons.visibility_off_rounded
+            ), 
+            onPressed: () {
+              setState(() {
+                _isObscured = !_isObscured;
+              });
+            },
+          )
+          : widget.icono,
       ),
-      
     );
   }
 }

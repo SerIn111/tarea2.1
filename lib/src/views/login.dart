@@ -3,7 +3,7 @@ import 'package:tarea2_1/src/widgets/mytextfield.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
-
+  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,6 +29,7 @@ class Login extends StatelessWidget {
                   children: [
                     const Text('Ingrese su correo', style: TextStyle(fontSize: 20),),
                     MyTextfield(
+                    obscuretext: false,
                     type: TextInputType.emailAddress,
                     textoejemplo: 'ejemplo@unah.hn',
                     ),
@@ -42,7 +43,12 @@ class Login extends StatelessWidget {
                 child: MyTextfield(
                   type: TextInputType.number,
                   obscuretext: true,
-                  icono: Icon(Icons.remove_red_eye_rounded),
+                  icono: IconButton(
+                    icon: Icon(Icons.remove_red_eye_rounded),
+                    onPressed: (){
+
+                    }, 
+                  ),
                 ),
               ),
             ],
