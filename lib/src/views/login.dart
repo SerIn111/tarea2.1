@@ -6,8 +6,8 @@ import 'package:tarea2_1/src/widgets/mytextfield.dart';
 
 class Login extends StatelessWidget {
   Login({super.key});
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  final correoController = TextEditingController();
+  final contraseniaController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,7 +27,7 @@ class Login extends StatelessWidget {
               obscuretext: false,
               type: TextInputType.emailAddress,
               textoejemplo: 'correo@unah.hn',
-              controller: emailController,
+              controller: correoController,
               texto: 'Ingrese su correo',
               tamaniotexto: 20,
               pmargin: const EdgeInsets.all(10),
@@ -44,7 +44,7 @@ class Login extends StatelessWidget {
                 onPressed: (){
                 }, 
               ),
-              controller: passwordController,
+              controller: contraseniaController,
               texto: 'Ingrese su contraseña',
               tamaniotexto: 20,
               pmargin: const EdgeInsets.all(10),
@@ -57,7 +57,7 @@ class Login extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor: WidgetStateProperty.all(Colors.blue[350])
                 ),
-                onPressed: (){
+                onPressed: ()async{
                   if(usersdata.isEmpty)
                   {
                     Utils.showSnackBar(
@@ -68,7 +68,7 @@ class Login extends StatelessWidget {
                   }
                   else
                   {
-                    if(emailController.text.isEmpty || passwordController.text.isEmpty)
+                    if(correoController.text.isEmpty || contraseniaController.text.isEmpty)
                     {
                       Utils.showSnackBar(
                         context: context,
@@ -78,25 +78,20 @@ class Login extends StatelessWidget {
                     }
                     else
                     {
-                      if(usersdata.any((user) =>['correo'] == emailController.text))
+                      if(usersdata.any((user) => user['correo'] == correoController.text) && usersdata.any((user) => user['contrasenia'] == contraseniaController.text))
                       {
-                        print('Correo existe');
-                        if(usersdata.any((user) =>['contrasenia'] == passwordController.text))
-                        {
-                          print('Login exitoso');
-                        }
-                        else
-                        {
-                          Utils.showSnackBar(
+                        Utils.showSnackBar(
                           context: context,
-                          title: "Datos incorrectos",
-                          color: Colors.red[300],
+                          title: "Inicio de sesion exitoso",
+                          color: Colors.green[300],
                         );
-                        }
+
+                        await Future.delayed(const Duration(seconds: 2), () {
+                          context.goNamed('success');
+                        });
                       }
                       else
                       {
-                        // print('Correo no existe');
                         Utils.showSnackBar(
                           context: context,
                           title: "Datos incorrectos",
