@@ -78,10 +78,10 @@ class Login extends StatelessWidget {
                     }
                     else
                     {
-                      if(usersdata.any((user) =>['email'] == emailController.text))
+                      if(usersdata.any((user) =>['correo'] == emailController.text))
                       {
                         print('Correo existe');
-                        if(usersdata.any((user) =>['password'] == passwordController.text))
+                        if(usersdata.any((user) =>['contrasenia'] == passwordController.text))
                         {
                           print('Login exitoso');
                         }

@@ -55,7 +55,7 @@ class _MyTextfieldState extends State<MyTextfield> {
         children: [
           Text(
             widget.texto, 
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: widget.tamaniotexto),
           ),
           TextField(
             keyboardType: widget.type,
