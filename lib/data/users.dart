@@ -5,10 +5,4 @@ final List<Map<String, dynamic>> usersdata = [
     'telefono' : '11111111',
     'contrasenia' : 'pprueba1'
   },
-  {
-    'nombre' : 'prueba2',
-    'correo' : 'eprueba2',
-    'telefono' : '22222222',
-    'contrasenia' : 'pprueba2'
-  },
 ];

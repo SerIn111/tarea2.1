@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tarea2_1/data/users.dart';
 import 'package:tarea2_1/src/shared/utils.dart';
 import 'package:tarea2_1/src/widgets/mytextfield.dart';
 
@@ -141,6 +142,15 @@ class Register extends StatelessWidget {
                         color: Colors.green[300],
                       );
 
+                      final Map<String, dynamic> newuser = {
+                        'nombre' : registerNombreController.text,
+                        'correo' : registerCorreoController.text,
+                        'telefono' : registerTelefonoController.text,
+                        'contrasenia' : registerContraseniaController.text
+                      };
+                      usersdata.add(newuser);
+
+                      print(usersdata);
                       await Future.delayed(const Duration(seconds: 2), () {
                         context.pop();
                       });
