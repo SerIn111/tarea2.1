@@ -28,7 +28,10 @@ class MyApp extends StatelessWidget {
               GoRoute(
                 path: '/success', 
                 name: 'success', 
-                builder: (context, state) => Exito()
+                builder: (context, state) {
+                  final nombre = state.extra as String? ?? '';
+                  return Exito(nombre: nombre,);
+                }
               ),
             ]
           ),

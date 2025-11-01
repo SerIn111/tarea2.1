@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 
 class Exito extends StatelessWidget {
-  const Exito({super.key});
+  const Exito({super.key, required this.nombre});
 
+  final String nombre;
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Perfil de'),
+        title: Text('Perfil de $nombre'),
       ),
-      body: const Center(
-        child: Text('Perfil de'),
+      body: Center(
+        child: Text('Perfil de $nombre'),
       ),
     );
   }
