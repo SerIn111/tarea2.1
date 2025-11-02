@@ -127,6 +127,18 @@ class Register extends StatelessWidget {
                       );
                     }
 
+                    RegExp exp = RegExp(r'[^a-zA-Z0-9]');
+                    if (!exp.hasMatch(registerContraseniaController.text)) 
+                    {
+                      error++;
+                      Utils.showSnackBar(
+                        context: context,
+                        title: "La contraseña debe tener al menos un caracter especial",
+                        color: Colors.red[300],
+                        duracion: const Duration(seconds: 1)
+                      );
+                    }
+
                     if(registerContraseniaController.text != confirmContraseniaController.text)
                     {
                       error++;
