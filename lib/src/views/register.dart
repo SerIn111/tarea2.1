@@ -100,7 +100,7 @@ class Register extends StatelessWidget {
                       context: context,
                       title: "Todos los campos son necesarios",
                       color: Colors.red[300],
-                      duracion: const Duration(seconds: 1)
+                      duracion: const Duration(seconds: 2)
                     );
                   }
                   else
@@ -112,7 +112,7 @@ class Register extends StatelessWidget {
                         context: context,
                         title: "El correo debe tener @unah.hn",
                         color: Colors.red[300],
-                        duracion: const Duration(seconds: 1)
+                        duracion: const Duration(seconds: 2)
                       );
                     }
           
@@ -123,7 +123,7 @@ class Register extends StatelessWidget {
                         context: context,
                         title: "La contraseña debe tener minimo 6 caracteres",
                         color: Colors.red[300],
-                        duracion: const Duration(seconds: 1)
+                        duracion: const Duration(seconds: 2)
                       );
                     }
 
@@ -135,7 +135,7 @@ class Register extends StatelessWidget {
                         context: context,
                         title: "La contraseña debe tener al menos un caracter especial",
                         color: Colors.red[300],
-                        duracion: const Duration(seconds: 1)
+                        duracion: const Duration(seconds: 2)
                       );
                     }
 
@@ -146,7 +146,7 @@ class Register extends StatelessWidget {
                         context: context,
                         title: "Las contraseñas no coinciden",
                         color: Colors.red[300],
-                        duracion: const Duration(seconds: 1)
+                        duracion: const Duration(seconds: 2)
                       );
                     }
 
@@ -156,7 +156,7 @@ class Register extends StatelessWidget {
                         context: context,
                         title: "Registro exitoso",
                         color: Colors.green[300],
-                        duracion: const Duration(seconds: 1)
+                        duracion: const Duration(seconds: 2)
                       );
 
                       final Map<String, dynamic> newuser = {

@@ -64,7 +64,7 @@ class Login extends StatelessWidget {
                       context: context,
                       title: "No hay usuarios creados",
                       color: Colors.red[300],
-                      duracion: const Duration(seconds: 1)
+                      duracion: const Duration(seconds: 2)
                     );
                   }
                   else
@@ -75,7 +75,7 @@ class Login extends StatelessWidget {
                         context: context,
                         title: "Ambos campos son obligatorios",
                         color: Colors.red[300],
-                        duracion: const Duration(seconds: 1)
+                        duracion: const Duration(seconds: 2)
                       );
                     }
                     else
@@ -86,7 +86,7 @@ class Login extends StatelessWidget {
                           context: context,
                           title: "Inicio de sesion exitoso",
                           color: Colors.green[300],
-                          duracion: const Duration(seconds: 1)
+                          duracion: const Duration(seconds: 2)
                         );
 
                         await Future.delayed(const Duration(seconds: 2), () {
@@ -99,7 +99,7 @@ class Login extends StatelessWidget {
                           context: context,
                           title: "Datos incorrectos",
                           color: Colors.red[300],
-                          duracion: const Duration(seconds: 1)
+                          duracion: const Duration(seconds: 2)
                         );
                       }
                     }

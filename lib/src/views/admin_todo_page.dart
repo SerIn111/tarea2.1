@@ -67,7 +67,7 @@ class AdminTodoPage extends StatelessWidget {
               context: context,
               title: "El titulo es obligatorio",
               color: Colors.red,
-              duracion: const Duration(seconds: 1)
+              duracion: const Duration(seconds: 2)
             );
 
             return;
@@ -93,7 +93,7 @@ class AdminTodoPage extends StatelessWidget {
           Utils.showSnackBar(
             context: context,
             title: "Tarea creada correctamente",
-            duracion: const Duration(seconds: 1)
+            duracion: const Duration(seconds: 2)
           );
 
           titleController.text = '';
