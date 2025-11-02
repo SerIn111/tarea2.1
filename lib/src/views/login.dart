@@ -89,15 +89,8 @@ class Login extends StatelessWidget {
                           duracion: const Duration(seconds: 1)
                         );
 
-                        Map<String, dynamic>? usuario = usersdata.firstWhere(
-                          (user) => user['correo'] == correoController.text,
-                          orElse: () => {},
-                        );
-
-                        String nombre = usuario.isNotEmpty ? usuario['nombre'] as String : '';
-
                         await Future.delayed(const Duration(seconds: 2), () {
-                          context.goNamed('success', extra: nombre);
+                          context.goNamed('homepage');
                         });
                       }
                       else

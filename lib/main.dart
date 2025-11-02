@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:tarea2_1/src/views/exito.dart';
+import 'package:tarea2_1/src/views/admin_todo_page.dart';
+import 'package:tarea2_1/src/views/home_page.dart';
 import 'package:tarea2_1/src/views/login.dart';
 import 'package:tarea2_1/src/views/register.dart';
 
@@ -26,12 +27,19 @@ class MyApp extends StatelessWidget {
                 builder: (context, state) => Register()
               ),
               GoRoute(
-                path: '/success', 
-                name: 'success', 
+                path: '/homepage', 
+                name: 'homepage', 
+                builder: (context, state) => const HomePage()
+              ),
+              GoRoute(
+                path: '/:id',
+                name: 'update-todo',
                 builder: (context, state) {
-                  final nombre = state.extra as String? ?? '';
-                  return Exito(nombre: nombre,);
-                }
+                  print(state.pathParameters);
+                  final todo = state.extra as Map<String, dynamic>;
+
+                  return AdminTodoPage(todo: todo);
+                },
               ),
             ]
           ),
